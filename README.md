@@ -47,9 +47,9 @@ Podreu trobar els XSD's del servei en aquest repositori sota el directori [/sche
 		* [3.2.4 Resposta - dades genèriques](#3.2.4)
 		* [3.2.5 Valors del codi d'error](#3.2.5)
    * [3.3. Dades tècniques (<COL·LEGI>_DADES_TECNIQUES)](#3.3)
-   * [3.3.1 Petició – dades genèriques](#3.3.1)
-   * [3.3.2 Petició – dades específiques](#3.3.2)
-   * [3.3.3 Resposta – dades específiques](#3.3.3)
+   		* [3.3.1 Petició – dades genèriques](#3.3.1)
+   		* [3.3.2 Petició – dades específiques](#3.3.2)
+   		* [3.3.3 Resposta – dades específiques](#3.3.3)
 - [4. Joc de proves](#4)
 - [5. Annex – exemple de missatges](#4)
 
@@ -85,13 +85,13 @@ Un exemple de poducte amb les seves modalitats de consum seria:
 Val a dir, que la resposta és la que ofereix el col·legi, i per tant, queda sota la seva reponsabilitat la
 garantia de si el projecte està visat convenientment, així com facilitar la seva descàrrega. Sota
 aquesta premisa, serà l’entorn del requeridor el que faci les comprovacions i validacions que consideri
-oportunes a efectes del procediment o tràmit en curs
+oportunes a efectes del procediment o tràmit en curs.
 
 :warning: **El Consorci AOC no farà cap tipus de tractament a la resposta que envia el col·legi.**
 
 ### 2.1 Fer una consulta<a name="2.1"></a>
 S’invocarà mitjançant el frontal síncron de la PCI.
-A continuació es detalla el diagrama de seqüència de la modalitat de consum: 
+<br/>A continuació es detalla el diagrama de seqüència de la modalitat de consum: 
 
 <p align="center">
 <img align="center" src="img/Consulta.png" />
@@ -102,7 +102,7 @@ A continuació es detalla el diagrama de seqüència de la modalitat de consum:
 
 ### 2.2 Fer una descàrrega<a name="2.2"></a>
 S’invocarà mitjançant el frontal asíncron de la PCI.
-A continuació es detalla el diagrama de seqüència de la modalitat de consum: 
+<br/>A continuació es detalla el diagrama de seqüència de la modalitat de consum: 
 <p align="center">
 <img align="center" src="img/Descarrega.png" />
 </p>
@@ -112,7 +112,7 @@ A continuació es detalla el diagrama de seqüència de la modalitat de consum:
 
 ### 2.3 Fer una consulta de dades tècniques <a name="2.3"></a>
 S’invocarà mitjançant el frontal síncron de la PCI.
-A continuació es detalla el diagrama de seqüència de la modalitat de consum: 
+<br/>A continuació es detalla el diagrama de seqüència de la modalitat de consum: 
 <p align="center">
 <img align="center" src="img/Consulta.png" />
 </p>
@@ -122,13 +122,12 @@ A continuació es detalla el diagrama de seqüència de la modalitat de consum:
 
 ## 3 Missatgeria dels serveis<a name="3"></a>
 A continuació es detalla la missatgeria corresponent a les modalitats de consum del DCOC. 
-<br/>Tot i que en la missatgeria genèrica de la PCI, no apareguin com a camps obligatoris, pel negoci que
+<br/><br/>Tot i que en la missatgeria genèrica de la PCI, no apareguin com a camps obligatoris, pel negoci que
 implementa el DCOC, son obligatoris els següents elements de la petició: 
 | _Element_ | _Descripció_ |
 | --- | --- |
 | Peticion/Atributos/Funcionario/NifFuncionario | Nif del funcionari que envia la petició.  |
-| Peticion/Solicitudes/SolicitudTransmision/DatosGenericos/Transmision/IdTransmision  | Identificador de la sol·licitud. S’utilizarà per
-a temes d’auditoria.|
+| Peticion/Solicitudes/SolicitudTransmision/DatosGenericos/Transmision/IdTransmision  | Identificador de la sol·licitud. S’utilizarà per a temes d’auditoria.|
 ### 3.1 Consulta - <COL·LEGI>_CONSULTA <a name="3.1"></a>
 A partir de l’identificador de projecte i l’acrònim del col·legi, informa si el projecte està visat.
 <br/>Opcionalment es pot indicar l’identificador d’un col·legiat. 
@@ -207,12 +206,12 @@ Les possibles respostes son:
 ### 3.2.1 Petició – dades genèriques <a name="3.2.1"></a>
 |Element| Descripció|Valor|
 | --- | --- | --- |
-|Peticion/Atributos/CodigoProducto |Codi producte |DCOC_<COL·LEGI> |
-|Peticion/Atributos/CodigoCertificado  |Codi producte |DCOC_<COL·LEGI> |
+|Peticion/Atributos/CodigoProducto |Codi producte|DCOC_<COL·LEGI> |
+|Peticion/Atributos/CodigoCertificado  |Codi certificat|<COL·LEGI>_DESCARREGA_HTTP <COL·LEGI>_DESCARREGA_FTP |
 |Peticion/Solicitudes/SolicitudTransmision/DatosGenericos/Transmision/CodigoCertificado|Codi certificat|<COL·LEGI>_DESCARREGA_HTTP <COL·LEGI>_DESCARREGA_FTP  |
 
 ### 3.2.2 Petició – dades específiques <a name="3.2.2"></a>
-Idèntica a la petició de consulta: <a name="3.1.2">3.1.2 Petició – dades específiques</a>
+Idèntica a la petició de consulta: [3.1.2 Petició – dades específiques](#3.1.2)
 
 ### 3.2.3 Resposta – dades específiques <a name="3.2.3"></a>
 <p align="center">
@@ -251,7 +250,7 @@ Aquesta modalitat de consum també informa camps optatius de la missatgeria gen�
 |Ficheros / Fichero / Via  | Indica si es un fitxer d’entrada o de sortida.   | Salida |
 
 
-:warning: Els documents associats a aquestes URLs generades a la resposta **un temps de permanència determinat dins del sistema de fitxers.** Es possible que, malgrat obtenir una resposta correcta, els fitxers no estiguin disponibles per aquest motiu. Per a més informació consultar el temps de permanència dels documents al sistema de fitxers al departament de suport d’integració (suport.integracio@aoc.cat).
+>:warning: Els documents associats a aquestes URLs generades a la resposta **un temps de permanència determinat dins del sistema de fitxers.** Es possible que, malgrat obtenir una resposta correcta, els fitxers no estiguin disponibles per aquest motiu. Per a més informació consultar el temps de permanència dels documents al sistema de fitxers al departament de suport d’integració (suport.integracio@aoc.cat).
 
 ### 3.2.5 Valors del codi d’error  <a name="3.2.5"></a>
 A continuació es detallen els valors possibles pel camp codi de l’error:
@@ -282,7 +281,7 @@ A partir de l’identificador de projecte i l’acrònim del col·legi, informa 
 |Peticion/Solicitudes/SolicitudTransmision/DatosGenericos/Transmision/CodigoCertificado | Codi certificat   | <COL·LEGI_DADES_TECNIQUES|
 
 ### 3.3.2 Petició – dades específiques <a name="3.3.2"></a>
-Idèntica a la petició de consulta: <a name="3.1.2"> 3.1.2 Petició – dades específiques </a>
+Idèntica a la petició de consulta: [3.1.2 Petició – dades específiques](#3.1.2)
 
 ### 3.3.3 Resposta – dades específiques <a name="3.3.3"></a>
 <p align="center">
@@ -297,8 +296,8 @@ Idèntica a la petició de consulta: <a name="3.1.2"> 3.1.2 Petició – dades e
 |respostaDCOC (R)|error (P)|X|Subelement de tipus error.
 |projecte (S)|idProjecte (P) ||Identificador del projecte sol·licitat
 |projecte (S)|dadesTecniques (P) ||Camp de tipus anyType amb la informació de les dades tècniques. Dependrà del format de l’emissor final, per això es un camp any.|
-|error (S))|codi (P)|X|Codi de l’error. En cas de resposta correcta el valor serà 0. |
-|error (S))|descripcio (P)||Descripció de l’error.|
+|error (S)|codi (P)|X|Codi de l’error. En cas de resposta correcta el valor serà 0. |
+|error (S)|descripcio (P)||Descripció de l’error.|
 
 ## 4 Joc de proves <a name="4"></a>
 
