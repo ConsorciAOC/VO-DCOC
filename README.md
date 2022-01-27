@@ -41,7 +41,7 @@ Podreu trobar els XSD's del servei en aquest repositori sota el directori [/sche
 		* [3.1.2 Petició – dades específiques](#3.1.2)
 		* [3.1.3 Resposta – dades específiques](#3.1.3)
 		* [3.1.4 Valors del codi d’error](#3.1.4)
-   * [3.2. Descàrrega (<COL·LEGI>_DESCARREGA_HTTP / <COL·LEGI>_DESCARREGA_FTP)](#3.2)
+   * [3.2. Descàrrega (<COL·LEGI>_DESCARREGA_HTTP](#3.2)
 		* [3.2.1 Petició – dades genèriques](#3.2.1)
 		* [3.2.2 Petició – dades específiques](#3.2.2)
 		* [3.2.3 Resposta - dades específiques](#3.2.3)
@@ -70,7 +70,6 @@ Les dades disponibles a través del servei són les que es presenten a continuac
 | --- | --- | --- |
 | **DCOC_<COL·LEGI>**| [<COL·LEGI>_CONSULTA](#3.1) | Consulta si el projecte indicat està VISAT o no.|
 | **DCOC_<COL·LEGI>**| [<COL·LEGI>_DESCARREGA_HTTP](#3.2) | Descarrega un projecte indicant que un cop descarregat, s’accedirà als documents via HTTP (les urls de la resposta vindran en format HTTP).  |
-| **DCOC_<COL·LEGI>**| [<COL·LEGI>_DESCARREGA_FTP](#3.2) | Descarrega un projecte indicant que un cop descarregat, s’accedirà als documents via FTP (les urls de la resposta vindran en format FTP).|
 | **DCOC_<COL·LEGI>**| [<COL·LEGI>_DADES_TECNIQUES ](#3.3) | Obté les dades tècniques d’un projecte visat.|
 
 Així doncs, pel servei del DCOC es definiràn n productes (un per a cada col·legi integrat) i per a
@@ -80,7 +79,7 @@ Un exemple de poducte amb les seves modalitats de consum seria:
 - Producte: DCOC_COAC
 - Modalitats de consum:
 	* COAC_CONSULTA: la modalitat de consulta permet fer la consulta al col·legi sobre si un projecte està visat electrònicament o no. Aquesta modalitat es síncrona. 
-	* COAC_DESCARREGA_HTTP / COAC_DESCARREGA_FTP: les modalitats de descàrrega permeten la descarrega d’un projecte visat, sempre i quan el projecte estigui visat electrònicament i que el col·legi el posi a disposicio per poder fer la descàrrega. Aquesta modalitat és asíncrona. 
+	* COAC_DESCARREGA_HTTP: les modalitats de descàrrega permeten la descarrega d’un projecte visat, sempre i quan el projecte estigui visat electrònicament i que el col·legi el posi a disposicio per poder fer la descàrrega. Aquesta modalitat és asíncrona. 
 	* COAC_DADES_TECNIQUES: la modaditat de dades tècniques permet obtenir la informació amb les dades tècniques d’un determinat projecte visat. Aquesta modalitat es síncrona. 
 		
 Val a dir, que la resposta és la que ofereix el col·legi, i per tant, queda sota la seva reponsabilitat la
@@ -192,7 +191,7 @@ A continuació es detallen els valors possibles pel camp codi de l’error:
 |5|El col·legi sol·licitat està desactivat|
 |> 5|Altres errors|
 
-## 3.2  Descàrrega (<COL·LEGI>_DESCARREGA_HTTP / <COL·LEGI>_DESCARREGA_FTP)  <a name="3.2"></a>
+## 3.2  Descàrrega (<COL·LEGI>_DESCARREGA_HTTP)  <a name="3.2"></a>
 
 A partir de l’identificador de projecte i l’acrònim del col·legi, s’obté un enllaç per a poder descarregar
 un projecte visat. En el cas en que el document sigui un XML també s’obté el contingut del XML en un
@@ -200,7 +199,6 @@ camp de la pròpia resposta. <br/>Opcionalment es pot indicar l’identificador 
 
 Les possibles respostes son: 
 * El projecte no està visat
-* El projecte està visat. Es descarregarà el document via FTP.
 * El projecte està visat. Es descarregarà el document via HTTP.
 * El projecte està visat. Es un projecte on el document associat es un XML i per tant el contingut està inclós en la pròpia resposta. 
 
@@ -208,8 +206,8 @@ Les possibles respostes son:
 |Element| Descripció|Valor|
 | --- | --- | --- |
 |Peticion/Atributos/CodigoProducto |Codi producte|DCOC_<COL·LEGI> |
-|Peticion/Atributos/CodigoCertificado  |Codi certificat|<COL·LEGI>_DESCARREGA_HTTP <COL·LEGI>_DESCARREGA_FTP |
-|Peticion/Solicitudes/SolicitudTransmision/DatosGenericos/Transmision/CodigoCertificado|Codi certificat|<COL·LEGI>_DESCARREGA_HTTP <COL·LEGI>_DESCARREGA_FTP  |
+|Peticion/Atributos/CodigoCertificado  |Codi certificat|<COL·LEGI>_DESCARREGA_HTTP|
+|Peticion/Solicitudes/SolicitudTransmision/DatosGenericos/Transmision/CodigoCertificado|Codi certificat|<COL·LEGI>_DESCARREGA_HTTP  |
 
 ### 3.2.2 Petició – dades específiques <a name="3.2.2"></a>
 Idèntica a la petició de consulta: [3.1.2 Petició – dades específiques](#3.1.2)
@@ -488,7 +486,7 @@ següents dades de prova estan disponibles a l’entorn de pre-producció:
 ```xml
 <res:Respuesta xmlns:res="http://gencat.net/scsp/esquemes/respuesta">
 	<res:Atributos>
-		<res:CodigoCertificado>CAATB_DESCARREGA_FTP</res:CodigoCertificado>
+		<res:CodigoCertificado>CAATB_DESCARREGA_HTPP</res:CodigoCertificado>
 		<res:CodigoProducto>DCOC_CAATB</res:CodigoProducto>
 		<res:IdPeticion>1252928201138</res:IdPeticion>
 		<res:IdSolicitanteOriginal>1DPGO049</res:IdSolicitanteOriginal>
@@ -537,7 +535,7 @@ següents dades de prova estan disponibles a l’entorn de pre-producció:
 				</res:Solicitante>
 				<res:Titular/>
 				<res:Transmision>
-					<res:CodigoCertificado>CAATB_DESCARREGA_FTP</res:CodigoCertificado>
+					<res:CodigoCertificado>CAATB_DESCARREGA_HTTP</res:CodigoCertificado>
 					<res:FechaGeneracion>2009/09/14 01:36:38</res:FechaGeneracion>
 					<res:IdSolicitud>1</res:IdSolicitud>
 					<res:IdTransmision/>
