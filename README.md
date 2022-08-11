@@ -58,8 +58,12 @@ Podreu trobar els XSD's del servei en aquest repositori sota el directori [/sche
 Aquest document detalla la missatgeria associada al servei de Documentació de Col·legis Oficials de
 Catalunya (en endavant DCOC).
 Per poder realitzar la integració cal conèixer prèviament la següent documentació: 
+
 - Document del Servei Via Oberta.
-- Document de Missatgeria Genèrica de la PCI del Consorci AOC.
+- [Document de Missatgeria Genèrica de la PCI del Consorci AOC.][PCI]
+
+[PCI]:https://github.com/ConsorciAOC/PCI
+
 
 ## 2 Transmissions de dades disponibles <a name="2"></a>
 
