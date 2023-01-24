@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://aoc.net/dcoc/v2/respostaDadesTecniques" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://aoc.net/dcoc/v2/respostaDadesTecniques" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="projecte">
+		<xs:annotation>
+			<xs:documentation>Projecte</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idProjecte" type="xs:string"/>
+				<xs:element name="dadesTecniques">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="respostaDCOC">
+		<xs:annotation>
+			<xs:documentation>Resposta</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idColegi" type="xs:string"/>
+				<xs:element name="idColegiat" type="xs:string" minOccurs="0"/>
+				<xs:element ref="projecte" minOccurs="0"/>
+				<xs:element ref="error"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="error">
+		<xs:annotation>
+			<xs:documentation>Error</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="codi" type="xs:string"/>
+				<xs:element name="descripcio" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

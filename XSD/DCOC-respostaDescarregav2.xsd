@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by Sergio Figueras (Consorci Administració Oberta de Catalunya) -->
+<xs:schema xmlns="http://aoc.net/dcoc/v2/respostaDescarrega" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://aoc.net/dcoc/v2/respostaDescarrega" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="arxiu">
+		<xs:annotation>
+			<xs:documentation>Document</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="idArxiu" type="xs:string"/>
+			<xs:element name="descripcio" type="xs:string" minOccurs="0"/>
+			<xs:element name="tamany" type="xs:string" minOccurs="0"/>
+			<xs:element name="contentType" type="xs:string"/>
+			<xs:choice>
+				<xs:element name="url" type="xs:string"/>
+				<xs:element name="contingut" type="xs:string"/>
+			</xs:choice>
+			<xs:element name="signaturaColegi" type="arxiu" minOccurs="0"/>
+			<xs:element name="signaturaProfessional" type="arxiu" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="projecte">
+		<xs:annotation>
+			<xs:documentation>Projecte</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idProjecte" type="xs:string"/>
+				<xs:element name="codiTipusProjecte" type="xs:string" minOccurs="0"/>
+				<xs:element name="tipusProjecte" type="xs:string" minOccurs="0"/>
+				<xs:element ref="arxius" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="arxius">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="arxiu" type="arxiu" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="respostaDCOC">
+		<xs:annotation>
+			<xs:documentation>Resposta</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idColegi" type="xs:string"/>
+				<xs:element name="idColegiat" type="xs:string" minOccurs="0"/>
+				<xs:element ref="projecte" minOccurs="0"/>
+				<xs:element ref="error"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="error">
+		<xs:annotation>
+			<xs:documentation>Error</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="codi" type="xs:string"/>
+				<xs:element name="descripcio" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
