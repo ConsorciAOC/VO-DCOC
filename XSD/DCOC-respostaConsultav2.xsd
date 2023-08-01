@@ -9,10 +9,11 @@
 				<xs:element name="idProjecte" type="xs:string"/>
 				<xs:element name="codiTipusProjecte" type="xs:string" minOccurs="0"/>
 				<xs:element name="tipusProjecte" type="xs:string" minOccurs="0"/>
-				<xs:element name="estatVisat" type="xs:string"/>
 				<xs:element name="estatCertificat" type="xs:string" minOccurs="0"/>
 				<xs:element name="tamany" type="xs:int" minOccurs="0"/>
-				<xs:element name="dadesEspecifiques" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="estatVisat" type="xs:string"/>
+				<!--xs:element name="dadesEspecifiques" type="xs:anyType" minOccurs="0"/>-->
+				<xs:any processContents="lax" minOccurs="0"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
