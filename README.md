@@ -253,7 +253,7 @@ Aquesta modalitat de consum també informa camps optatius de la missatgeria gen�
 |Ficheros / Fichero / Via  | Indica si es un fitxer d’entrada o de sortida.   | Salida |
 
 
->:warning: Els documents associats a aquestes URLs generades a la resposta **un temps de permanència determinat dins del sistema de fitxers.** Es possible que, malgrat obtenir una resposta correcta, els fitxers no estiguin disponibles per aquest motiu. Per a més informació consultar el temps de permanència dels documents al sistema de fitxers al departament de suport d’integració (suport.integracio@aoc.cat).
+>:warning: Els documents associats a aquestes URLs generades a la resposta **un temps de permanència determinat dins del sistema de fitxers.** Es possible que, malgrat obtenir una resposta correcta, els fitxers no estiguin disponibles per aquest motiu. Per a més informació consultar el temps de permanència dels documents al sistema de fitxers al departament de suport d’integració (suporttecnic@aoc.cat).
 
 ### 3.2.5 Valors del codi d’error  <a name="3.2.5"></a>
 A continuació es detallen els valors possibles pel camp codi de l’error:
